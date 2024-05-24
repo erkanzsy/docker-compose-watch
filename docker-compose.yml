@@ -1,0 +1,13 @@
+services:
+  golang:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: go run main.go
+    ports:
+      - '8080:8080'
+    develop:
+      watch:
+        - action: sync+restart
+          path: ./
+          target: /usr/src/app
